@@ -4,39 +4,25 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>My first server</title>
+        <title>Document</title>
     </head>
     <body>
         <h1><%= title %></h1>
-        <form action="/" method="POST">
-            <input type="text" name="title" required />
-            <br />
-            <br />
-            <button>Create!</button>
-
-            <br />
+        <form action="/" method="post">
+            <input type="text" name="title" required autofocus />
+            <button>Create</button>
         </form>
         <% if(created){ %>
-        <span>Notes has been created! </span>
-        <% } %> <%if(notes.length){%>
+            <span>added note</span>
+            <% } %>
+        <br />
         <ul>
-            <% for (let i = 0;i < notes.length ; i++) { %>
-
-            <li>
-                <%= notes[i].title %>
-                <button
-                    data-type="remove"
-                    data-id="<%= notes[i].id %>"
-                >
-                    x
-                </button>
+            <% for(let i = 0; i< notes.length;i++){ %>
+            <li><%= notes[i].title %>
+            <button data-type="remove" data-id=<%=notes[i].id %>>&#10008;</button>
             </li>
-
             <% } %>
         </ul>
-        <%}else{%>
-        <span>Not notes!</span>
-        <%}%>
         <script src="/app.js"></script>
     </body>
 </html>

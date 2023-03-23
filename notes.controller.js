@@ -15,7 +15,7 @@ async function getNotes() {
 async function printNotes() {
     const notes = await getNotes();
 }
-async function deleteOnId(id) {
+async function removeNode(id) {
     const notes = await getNotes();
     const newNotes = notes.filter((note) => note.id !== id);
     await fs.writeFile(notesPath, JSON.stringify(newNotes));
@@ -24,6 +24,6 @@ async function deleteOnId(id) {
 module.exports = {
     addNote,
     printNotes,
-    deleteOnId,
+    removeNode,
     getNotes
 };
